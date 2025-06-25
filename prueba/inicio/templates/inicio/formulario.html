@@ -13,13 +13,18 @@
   </div>
   <!-- /Encabezado-->
 {%block nav%}
-<a href="{%url 'Principal'%}">
-				{%if request.path == '/' %}
+			<div class="breadcrumb-line">
+				<ul class="breadcrumb">
+
+					<a href="{%url 'Principal'%}">
+						{%if request.path == '/' %}
 						Principal
-				{%else%}
-					Principal{{request.path}}
-				{%endif%}
-			</a>
+						{%else%}
+						Principal{{request.path}}
+						{%endif%}
+					</a>
+				</ul>
+			</div>
 {%endblock%}
   <!-- Formulario -->
   <form class="form-horizontal" action="#" role="form">

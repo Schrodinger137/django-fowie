@@ -17,13 +17,18 @@ Principal <span>Inicio</span>
 </div>
 <!-- /Encabezado-->
 {%block nav%}
-<a href="{%url 'Principal'%}">
-  {%if request.path == '/' %}
-  Principal
-  {%else%}
-  Principal{{request.path}}
-  {%endif%}
-</a>
+			<div class="breadcrumb-line">
+				<ul class="breadcrumb">
+
+					<a href="{%url 'Principal'%}">
+						{%if request.path == '/' %}
+						Principal
+						{%else%}
+						Principal{{request.path}}
+						{%endif%}
+					</a>
+				</ul>
+			</div>
 {%endblock%}
 
 <table class="table table-bordered table-striped">
