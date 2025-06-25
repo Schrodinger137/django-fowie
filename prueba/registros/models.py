@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -23,7 +24,7 @@ class Comentarios(models.Model):
     id = models.AutoField(primary_key=True,verbose_name='Clave')
     alumno = models.ForeignKey(Alumnos, on_delete=models.CASCADE, verbose_name='Alumno')
     created = models.DateTimeField(auto_now_add=True, verbose_name='Registrado')
-    coment = models.TextField(verbose_name='Comentario')
+    coment = RichTextField(verbose_name='Comentario')
     
     class Meta:
         verbose_name = 'Comentario'
