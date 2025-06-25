@@ -17,18 +17,18 @@ Principal <span>Inicio</span>
 </div>
 <!-- /Encabezado-->
 {%block nav%}
-			<div class="breadcrumb-line">
-				<ul class="breadcrumb">
+<div class="breadcrumb-line">
+  <ul class="breadcrumb">
 
-					<a href="{%url 'Principal'%}">
-						{%if request.path == '/' %}
-						Principal
-						{%else%}
-						Principal{{request.path}}
-						{%endif%}
-					</a>
-				</ul>
-			</div>
+    <a href="{%url 'Principal'%}">
+      {%if request.path == '/' %}
+      Principal
+      {%else%}
+      Principal{{request.path}}
+      {%endif%}
+    </a>
+  </ul>
+</div>
 {%endblock%}
 
 <table class="table table-bordered table-striped">
@@ -43,6 +43,7 @@ Principal <span>Inicio</span>
     </tr>
   </thead>
   <tbody>
+    {% if alumnos %}
     {% for alumno in alumnos %}
     <tr>
       <td class="text-center">
@@ -54,6 +55,11 @@ Principal <span>Inicio</span>
       <td class="muted">{{alumno.turno}}</td>
     </tr>
     {% endfor %}
+    {% else %}
+    <tr>
+      <td class="muted">Sin alumnos</td>
+    </tr>
+    {% endif %}
   </tbody>
 
 </table>

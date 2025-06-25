@@ -18,3 +18,17 @@ class Alumnos(models.Model):
         
     def __str__(self):
         return self.nombre
+    
+class Comentarios(models.Model):
+    id = models.AutoField(primary_key=True,verbose_name='Clave')
+    alumno = models.ForeignKey(Alumnos, on_delete=models.CASCADE, verbose_name='Alumno')
+    created = models.DateTimeField(auto_now_add=True, verbose_name='Registrado')
+    coment = models.TextField(verbose_name='Comentario')
+    
+    class Meta:
+        verbose_name = 'Comentario'
+        verbose_name_plural = 'Comentarios'
+        ordering = ['-created']
+        
+    def __str__(self):
+        return self.coment
