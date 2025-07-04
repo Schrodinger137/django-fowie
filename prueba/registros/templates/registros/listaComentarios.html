@@ -1,0 +1,66 @@
+{% extends "inicio/encabezado.html" %} {%block titulo%}Principal {%endblock%}
+{%block imagen%} {%load static%} {%static 'inicio/images/home.png'%}
+{%endblock%}
+{% block texto %}
+Principal <span>Inicio</span>
+{% endblock %}
+
+
+{% block contenido%}
+
+
+<!--Encabezdo -->
+<div class="page-header">
+  <div class="page-title">
+    <h3>Comentarios <small>Lista de Comentarios </small></h3>
+  </div>
+</div>
+<!-- /Encabezado-->
+{%block nav%}
+<div class="breadcrumb-line">
+  <ul class="breadcrumb">
+
+    <a href="{%url 'Principal'%}">
+      {%if request.path == '/' %}
+      Principal
+      {%else%}
+      Principal{{request.path}}
+      {%endif%}
+    </a>
+  </ul>
+</div>
+{%endblock%}
+<s></s>
+
+<table class="table table-bordered table-striped">
+
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Usuario</th>
+      <th>Mensaje</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if comentarios %}
+    {% for comentario in comentarios %}
+    <tr>
+      <td class="text-semibold">{{comentario.id}}</td>
+      <td class="muted">{{comentario.usuario}}</td>
+      <td class="muted">{{comentario.mensaje}}</td>
+      <td class="muted">Editar</td>
+      <td class="muted">Eliminar</td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <tr>
+      <td class="muted">Sin comentarios</td>
+    </tr>
+    {% endif %}
+  </tbody>
+
+</table>
+
+{% endblock %}

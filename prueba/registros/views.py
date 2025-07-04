@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .models import Alumnos
+from django.shortcuts import render, redirect
+from .models import *
 from .forms import ComentarioContactoForm
 # Create your views here.
 
@@ -15,9 +15,10 @@ def registrar(request):
         form = ComentarioContactoForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'registros/contacto.html')
-    form = ComentarioContactoForm()
+            return redirect('Comentarios')
     
+    form = ComentarioContactoForm()
+
     return render(request, 'registros/contacto.html', {
         'form':form
     }) 
@@ -25,3 +26,9 @@ def registrar(request):
 def contacto(request):
     return render(request,"registros/contacto.html")
 
+def comentarios(request):
+    comentarios = ComentarioContacto.objects.all()
+    
+    return render(request, 'registros/listaComentarios.html', {
+        'comentarios':comentarios
+    })
