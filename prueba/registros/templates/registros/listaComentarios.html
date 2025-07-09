@@ -1,8 +1,8 @@
-{% extends "inicio/encabezado.html" %} {%block titulo%}Principal {%endblock%}
-{%block imagen%} {%load static%} {%static 'inicio/images/home.png'%}
+{% extends "inicio/encabezado.html" %} {%block titulo%}Comentarios {%endblock%}
+{%block imagen%} {%load static%} {%static 'inicio/images/lista-de-verificacion.png'%}
 {%endblock%}
 {% block texto %}
-Principal <span>Inicio</span>
+Lista <span>Comentarios</span>
 {% endblock %}
 
 
@@ -51,7 +51,7 @@ Principal <span>Inicio</span>
       <td class="muted">{{comentario.usuario}}</td>
       <td class="muted">{{comentario.mensaje}}</td>
       <td class="muted">Editar</td>
-      <td class="muted">Eliminar</td>
+      <td class="text-center"><a href="{% url 'Eliminar' comentario.id  %}">Eliminar</a></td>
     </tr>
     {% endfor %}
     {% else %}

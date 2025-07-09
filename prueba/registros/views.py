@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import *
 from .forms import ComentarioContactoForm
+from django.shortcuts import get_object_or_404
 # Create your views here.
 
 def registros(request):
@@ -32,3 +33,14 @@ def comentarios(request):
     return render(request, 'registros/listaComentarios.html', {
         'comentarios':comentarios
     })
+
+def eliminarComentarioContacto(request, id, confirmacion='registros/confirmarEliminacion.html'):
+    comentario = get_object_or_404(ComentarioContacto, id=id)
+    if request.method=='POST':
+        comentario.delete()
+        comentarios = ComentarioContacto.objects.all()
+        return render(request, 'registros/contacto.html', {
+            'comentarios':comentarios
+        })
+    
+    return render(request, confirmacion, {'object':comentario})
