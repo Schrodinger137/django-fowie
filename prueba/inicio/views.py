@@ -5,6 +5,9 @@ def principal(request):
     alumnos = 0
     return render(request, "inicio/principal.html")
 
+def contacto(request):
+    return render(request,"inicio/contacto.html")
+
 def formulario(request):
     return render(request, "inicio/formulario.html")
 

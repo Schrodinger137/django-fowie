@@ -27,7 +27,8 @@ urlpatterns = [
     path('formulario/', views.formulario, name="Formulario"),
     path('ejemplo/', views.ejemplo, name="Ejemplo"),
     path('registrar/', views_registros.registrar, name='Registrar'),
-    path('comentarios/', views_registros.comentarios, name='Comentarios')
+    path('comentarios/', views_registros.comentarios, name='Comentarios'),
+    path('eliminarComentario/<int:id>/', views_registros.eliminarComentarioContacto, name='Eliminar')
 ]
 
 
