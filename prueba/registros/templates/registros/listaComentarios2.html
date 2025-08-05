@@ -36,8 +36,6 @@ Lista <span>Comentarios</span>
 
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Usuario</th>
       <th>Mensaje</th>
       <th>Editar</th>
       <th>Eliminar</th>
@@ -47,8 +45,6 @@ Lista <span>Comentarios</span>
     {% if comentarios %}
     {% for comentario in comentarios %}
     <tr>
-      <td class="text-semibold">{{comentario.id}}</td>
-      <td class="muted">{{comentario.usuario}}</td>
       <td class="muted">{{comentario.mensaje}}</td>
       <td class="muted"><a href="{% url 'ConsultaIndividual' comentario.id  %}">Editar</a></td>
       <td class="text-center"><a href="{% url 'Eliminar' comentario.id  %}">Eliminar</a></td>

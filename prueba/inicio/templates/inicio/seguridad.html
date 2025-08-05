@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de búsqueda</title>
+</head>
+<body>
+    <form action="" method="get">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" required>
+        <input type="submit" value="Buscar">
+    </form>
+    <h2> Resultado: {{ nombre|safe }}</h2>
+    <script type="application/javascript">
+        var urlParams = new URLSearchParams(window.location.search)
+        var nombreBuscado = urlParams.get('nombre')
+        if (nombreBuscado){
+            document.getElementById('resultado').innerHTML = 'Resultado: '+ nombreBuscado 
+        }
+    </script>
+</body>
+</html>
